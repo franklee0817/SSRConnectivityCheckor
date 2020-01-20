@@ -1,6 +1,6 @@
 # SSRConnectivityCheckor
 
-This A SSR node connectivity checkor application.
+This A SSR node connectivity checkor application.[中文版说明](https://github.com/franklee0817/SSRConnectivityCheckor/blob/master/README.zh.md)
 
 # Use Guide
 
