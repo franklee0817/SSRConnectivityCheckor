@@ -1,12 +1,12 @@
 package main
 
 import (
+	"SSRConnectivityCheckor/path_loader"
+	"SSRConnectivityCheckor/server"
 	"encoding/json"
 	"flag"
 	"fmt"
 	"os"
-	"ssr_connectivity/path_loader"
-	"ssr_connectivity/server"
 )
 
 type defaultConfig struct {
