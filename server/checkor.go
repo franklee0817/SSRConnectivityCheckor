@@ -58,6 +58,7 @@ func gatherCheckResult() ConnectivityList {
 func process(servers []Server) {
 	for _, serv := range servers {
 		multiTask.Start()
+		fmt.Print(".")
 		go checkServer(serv)
 	}
 	multiTask.Wait()
