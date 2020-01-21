@@ -1,12 +1,12 @@
 package main
 
 import (
-	"SSRConnectivityCheckor/pathloader"
-	"SSRConnectivityCheckor/server"
 	"encoding/json"
 	"flag"
 	"fmt"
 	"os"
+	"ssr-connectivity-checkor/pathloader"
+	"ssr-connectivity-checkor/server"
 )
 
 // defaultConfig 配置文件内容结构体，config_file: ssr服务器json配置文件路径，subscribe_url: ssr订阅地址

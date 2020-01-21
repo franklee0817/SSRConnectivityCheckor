@@ -1,10 +1,10 @@
 package server
 
 import (
-	"SSRConnectivityCheckor/multi"
 	"fmt"
 	"runtime"
 	"sort"
+	"ssr-connectivity-checkor/multi"
 	"time"
 )
 
