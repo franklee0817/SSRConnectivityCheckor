@@ -1,4 +1,4 @@
-package path_loader
+package pathloader
 
 import (
 	"bytes"

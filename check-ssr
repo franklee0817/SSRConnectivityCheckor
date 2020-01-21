@@ -1,4 +1,0 @@
-#!/bin/bash
-
-cd /usr/local/ssr_connectivity_scanner
-./check-ssr $@

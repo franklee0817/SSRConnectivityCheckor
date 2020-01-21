@@ -1,7 +1,7 @@
 package main
 
 import (
-	"SSRConnectivityCheckor/path_loader"
+	"SSRConnectivityCheckor/pathloader"
 	"SSRConnectivityCheckor/server"
 	"encoding/json"
 	"flag"
@@ -9,12 +9,14 @@ import (
 	"os"
 )
 
+// defaultConfig 配置文件内容结构体，config_file: ssr服务器json配置文件路径，subscribe_url: ssr订阅地址
 type defaultConfig struct {
 	ConfigFile   string `json:"config_file"`
 	SubscribeURL string `json:"subscribe_url"`
 }
 
 func main() {
+	// 读取运行参数
 	var subscribeURL, configFile string
 	flag.StringVar(&subscribeURL, "s", "", "SSR订阅地址")
 	flag.StringVar(&configFile, "f", "", "SSR配置文件路径")
@@ -25,7 +27,8 @@ func main() {
 	} else if len(configFile) > 0 {
 		fromConfigFile(configFile)
 	} else {
-		userHome, _ := path_loader.Home()
+		// 获取用户Home目录下的配置文件内容
+		userHome, _ := pathloader.Home()
 		fileName := userHome + "/.ssr_scanner_conf"
 		file, _ := os.Open(fileName)
 		decoder := json.NewDecoder(file)
@@ -49,14 +52,16 @@ func main() {
 	}
 }
 
+// fromSubscribe 从订阅地址获取服务器列表并检测连通性
 func fromSubscribe(url string) {
-	servers := server.ParseSubscribe(url)
+	servers := server.PullSubscribe(url)
 	cl := server.CheckServers(servers)
 	printCl(cl)
 
 	return
 }
 
+// fromConfigFile 从配置文件获取服务器列表并检测连通性
 func fromConfigFile(configFile string) {
 	sc := &server.Configs{}
 	sc.LoadFileConf(configFile)
